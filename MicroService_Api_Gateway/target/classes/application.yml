@@ -1,0 +1,23 @@
+server:
+  port: 8000
+  
+spring:
+   application:
+      name: Api_Gateway
+      
+   cloud:
+    gateway:
+      routes:
+      - id: CITIZEN_SERVICE
+        uri: 
+          http://localhost:8001/
+        predicates :
+        - Path=/citizen/**
+      - id: VACCINATION_CENTER_SERVICE
+        uri: 
+            http://localhost:8002/
+        predicates :
+          - Path=/VaccinationCenter/**
+
+  
+  
